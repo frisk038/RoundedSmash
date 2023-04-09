@@ -16,8 +16,6 @@ texture = ExtResource( 2 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
 
-[node name="character" type="Node" parent="."]
-
 [node name="gun" type="Position2D" parent="."]
 position = Vector2( 15, -8 )
 
@@ -25,6 +23,7 @@ position = Vector2( 15, -8 )
 position = Vector2( 17, -8 )
 
 [node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
 autostart = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

@@ -3,9 +3,10 @@ extends KinematicBody2D
 signal spawn_bullet(pos)
 
 onready var joystick = get_parent().get_node("control/HBoxContainer/Virtual joystick")
-onready var initial_position = position
+onready var initial_position = get_viewport_rect().size / 2
 
 export(float, 0, 1, 0.01) var radius : float = 0.2
+export (int) var life = 10
 
 var speed = 200  # speed in pixels/sec
 var velocity = Vector2.ZERO

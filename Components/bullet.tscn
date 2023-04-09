@@ -17,3 +17,5 @@ shape = SubResource( 1 )
 [node name="Sprite" type="Sprite" parent="."]
 rotation = 1.5708
 texture = ExtResource( 1 )
+
+[connection signal="body_entered" from="." to="." method="_on_bullet_body_entered"]
