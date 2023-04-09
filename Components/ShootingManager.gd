@@ -1,7 +1,7 @@
 extends Node
 
 
-export (float) var fire_rate = 1
+export (float) var fire_rate = 1.0
 
 onready var bullet = preload("res://Components/bullet.tscn")
 
@@ -9,7 +9,7 @@ onready var bullet = preload("res://Components/bullet.tscn")
 func _ready():
 	pass # Replace with function body.
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	pass
 
 func _on_Player_spawn_bullet(pos:Vector2, rot:float, dir:Vector2):

@@ -20,10 +20,10 @@ func set_input():
 		pressed = true
 		rotation = joystick.get_output().angle()
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	set_input()
-	if velocity != Vector2.ZERO:
-		position = (velocity * radius) + initial_position
+#	if velocity != Vector2.ZERO:
+#		position = (velocity * radius) + initial_position
 
 func _ready():
 	position = get_viewport_rect().size / 2

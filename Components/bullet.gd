@@ -7,7 +7,7 @@ var direction:Vector2
 func _ready():
 	pass # Replace with function body.
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if direction != Vector2.ZERO:
 		var velo = direction * speed
 		global_position += velo
