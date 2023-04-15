@@ -1,5 +1,7 @@
 extends Node
 
+signal new_level
+
 onready var xp_meter = get_parent().get_node("hud/VBoxContainer/Xp")
 onready var lp_meter = get_parent().get_node("hud/VBoxContainer/Life")
 onready var lv_meter = get_parent().get_node("hud/VBoxContainer/Label")
@@ -23,6 +25,9 @@ func _on_damage_zone_area_entered(area):
 func resolve_stats():
 	if lp_meter.value <= 0:
 		print("fail")
-	elif xp_meter.value >= 100:
+	elif xp_meter.value >= xp_meter.max_value:
 		xp_meter.value = 0
-		emit_signal("new_level")
+		level += 1
+		xp_meter.max_value = 5 * level
+		lv_meter.text = "Level " + str(level)
+		emit_signal("new_level", level)

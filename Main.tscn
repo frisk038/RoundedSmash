@@ -53,5 +53,6 @@ collision_mask = 2
 [node name="control" parent="." instance=ExtResource( 3 )]
 
 [connection signal="timeout" from="EnemyManager/Timer" to="EnemyManager" method="_on_Timer_timeout"]
+[connection signal="new_level" from="StatsManager" to="EnemyManager" method="_on_StatsManager_new_level"]
 [connection signal="area_entered" from="damage_zone" to="StatsManager" method="_on_damage_zone_area_entered"]
 [connection signal="damage_given" from="damage_zone" to="StatsManager" method="_on_damage_zone_damage_given"]

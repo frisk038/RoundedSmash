@@ -17,7 +17,7 @@ func _on_enemy_dead(pos):
 		
 	match di :
 		0:
-			instance.value = 10
+			instance.value = 1
 		1:
 			instance.value = rng.randi_range(5, 25)
 

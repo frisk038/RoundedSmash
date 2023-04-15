@@ -5,7 +5,7 @@ signal dead
 export (int) var life = 10
 export (float) var speed =  50.0
 export (float) var max_distance =  50.0
-export (int) var hit_damage =  -1
+export (int) var hit_damage =  -10
 
 var player:Node2D = null
 var reset_position = Vector2(-1000, 0)

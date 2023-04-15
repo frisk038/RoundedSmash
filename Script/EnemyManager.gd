@@ -5,6 +5,7 @@ onready var player:KinematicBody2D = get_parent().get_node("player")
 onready var enemy = preload("res://Components/enemy/base_enemy.tscn")
 onready var rng = RandomNumberGenerator.new()
 onready var drop_mgr = get_parent().get_node("DropManager")
+onready var timer:Timer = $Timer
 
 const max_height = 1000
 const max_width = 500
@@ -15,7 +16,6 @@ const min_width = -100
 func new_enemy():
 	var instance = enemy.instance()
 	instance.player = player
-	
 	return instance 
 	
 func _ready():
@@ -35,4 +35,9 @@ func _on_Timer_timeout():
 			vec = Vector2(rng.randf_range(min_width, max_width), max_height)
 	instance.global_position = vec
 	instance.connect("dead", drop_mgr, "_on_enemy_dead")
-	get_tree().get_root().add_child(instance)
+	self.add_child(instance)
+
+
+func _on_StatsManager_new_level(level:int):
+	print(level)
+	timer.wait_time /= level

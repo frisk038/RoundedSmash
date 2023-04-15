@@ -52,6 +52,7 @@ margin_top = 60.0
 margin_right = 370.0
 margin_bottom = 85.0
 rect_min_size = Vector2( 0, 25 )
+max_value = 5.0
 texture_under = ExtResource( 2 )
 texture_progress = ExtResource( 3 )
 nine_patch_stretch = true
