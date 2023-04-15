@@ -1,9 +1,8 @@
 extends Node
 
-signal inflict_damage
 
-onready var player:KinematicBody2D	 = get_parent().get_node("Player")
-onready var enemy = preload("res://Components/enemy.tscn")
+onready var player:KinematicBody2D = get_parent().get_node("player")
+onready var enemy = preload("res://Components/enemy/base_enemy.tscn")
 onready var rng = RandomNumberGenerator.new()
  
 const max_height = 1000
@@ -14,16 +13,12 @@ const min_width = -100
 # Called when the node enters the scene tree for the first time.
 func new_enemy():
 	var instance = enemy.instance()
-	instance.connect("damage_given", self, "_on_damaged_inflicted")
 	instance.player = player
 	
 	return instance 
 	
 func _ready():
 	pass
-
-func _on_damaged_inflicted(damage):
-	emit_signal("inflict_damage", damage)
 	
 func _on_Timer_timeout():
 	var instance = new_enemy()
