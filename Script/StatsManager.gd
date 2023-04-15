@@ -9,5 +9,4 @@ func update_life(life):
 	lp_meter.value += life 
 	
 func _on_damage_zone_damage_given(damage):
-	print(damage)
 	update_life(damage)

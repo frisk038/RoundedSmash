@@ -16,7 +16,6 @@ extents = Vector2( 15, 22 )
 
 [node name="enemy" type="KinematicBody2D" groups=["enemy"]]
 script = ExtResource( 2 )
-hit_damage = -10
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 2 )
