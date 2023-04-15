@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Components/damage_zone.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Components/progress_bars.tscn" type="PackedScene" id=2]
@@ -9,9 +9,20 @@
 [ext_resource path="res://Main.gd" type="Script" id=7]
 [ext_resource path="res://Components/player.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Script/InputManager.gd" type="Script" id=9]
+[ext_resource path="res://Script/DropManager.gd" type="Script" id=10]
+[ext_resource path="res://Asset/Kenney/Tiles/tile_01.png" type="Texture" id=11]
 
 [node name="Main" type="Node"]
 script = ExtResource( 7 )
+
+[node name="background" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 11 )
+stretch_mode = 2
+
+[node name="DropManager" type="Node" parent="."]
+script = ExtResource( 10 )
 
 [node name="InputManager" type="Node2D" parent="."]
 script = ExtResource( 9 )
@@ -34,10 +45,13 @@ position = Vector2( 217, 386 )
 
 [node name="player" parent="." instance=ExtResource( 8 )]
 position = Vector2( 217, 386 )
+collision_layer = 2
+collision_mask = 2
 
 [node name="hud" parent="." instance=ExtResource( 2 )]
 
 [node name="control" parent="." instance=ExtResource( 3 )]
 
 [connection signal="timeout" from="EnemyManager/Timer" to="EnemyManager" method="_on_Timer_timeout"]
+[connection signal="area_entered" from="damage_zone" to="StatsManager" method="_on_damage_zone_area_entered"]
 [connection signal="damage_given" from="damage_zone" to="StatsManager" method="_on_damage_zone_damage_given"]

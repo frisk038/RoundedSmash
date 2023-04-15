@@ -4,7 +4,8 @@ extends Node
 onready var player:KinematicBody2D = get_parent().get_node("player")
 onready var enemy = preload("res://Components/enemy/base_enemy.tscn")
 onready var rng = RandomNumberGenerator.new()
- 
+onready var drop_mgr = get_parent().get_node("DropManager")
+
 const max_height = 1000
 const max_width = 500
 const min_height = -100
@@ -33,4 +34,5 @@ func _on_Timer_timeout():
 		3:
 			vec = Vector2(rng.randf_range(min_width, max_width), max_height)
 	instance.global_position = vec
+	instance.connect("dead", drop_mgr, "_on_enemy_dead")
 	get_tree().get_root().add_child(instance)

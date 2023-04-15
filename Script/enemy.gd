@@ -20,12 +20,13 @@ func _physics_process(_delta):
 			move_and_slide(target * speed)
 			look_at(player.position)
 
+
 func handle_hit(damage:int):
 	life -= damage
 	life = clamp(life, 0, 10)
 	if life == 0 :
+		emit_signal("dead", position)
 		visible = false
 		position = reset_position
-		emit_signal("dead")
 		player = null
 	#play damaged or death

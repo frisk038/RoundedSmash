@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Components/drop/drop.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Script/drop_lp.gd" type="Script" id=2]
+[ext_resource path="res://Asset/HUD/birthstone_beryl_01.png" type="Texture" id=3]
+
+[node name="drop_lp" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="Sprite" parent="." index="0"]
+modulate = Color( 1, 0, 0, 1 )
+scale = Vector2( 0.4375, 0.4375 )
+texture = ExtResource( 3 )
