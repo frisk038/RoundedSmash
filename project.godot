@@ -21,7 +21,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Rounded Smash"
-run/main_scene="res://Main.tscn"
+run/main_scene="res://Scene/main_screen.tscn"
 config/icon="res://icon.png"
 
 [display]

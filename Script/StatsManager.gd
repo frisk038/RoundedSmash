@@ -24,7 +24,10 @@ func _on_damage_zone_area_entered(area):
 	
 func resolve_stats():
 	if lp_meter.value <= 0:
-		print("fail")
+		var err = get_tree().change_scene("res://Scene/end_screen.tscn")
+		if err != OK :
+			print("cant load game scene")
+
 	elif xp_meter.value >= xp_meter.max_value:
 		xp_meter.value = 0
 		level += 1
